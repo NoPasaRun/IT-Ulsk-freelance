@@ -1,0 +1,41 @@
+@media (max-width: 800px) {
+
+    .row__item:first-child {
+        height: 212px;
+    }
+
+    .row__item {
+        border-radius: 10px;
+        height: 100px;
+    }
+
+    .row__item:first-child > * {
+        font-size: 10px;
+        line-height: 15px;
+    }
+
+    .latest__text {
+        font-size: 6px;
+        line-height: 10px;
+    }
+
+    .section__heading {
+        font-size: 24px;
+    }
+
+    .form__text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .news__grid {
+        grid-template-columns: initial;
+        grid-auto-columns: initial;
+    }
+
+    .latest__image {
+        width: 140%;
+        margin-left: -20%;
+    }
+}

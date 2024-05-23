@@ -1,0 +1,94 @@
+/* Intro block */
+
+.content__intro {
+    margin-bottom: 27px;
+}
+
+.section__heading {
+    text-transform: uppercase;
+    font-family: 'Involve';
+    font-size: 32.5px;
+    font-weight: 500;
+    line-height: 43px;
+    margin-bottom: 13px;
+    color: var(--indigo);
+}
+
+.content__title {
+    font-family: 'Involve';
+    font-size: 23px;
+    font-weight: 500;
+    line-height: 30.5px;
+    color: var(--indigo);
+    margin-bottom: 5px;
+}
+
+.content__description {
+    font-family: 'Involve';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    max-width: 755px;
+}
+
+/* Form block */ 
+
+.content__form {
+    margin-bottom: 50px;
+}
+
+/* Table block */
+
+th,
+td {
+    font-weight: 400;
+}
+
+.content__table {
+    position: relative;
+    border-collapse: collapse;
+    empty-cells: hide;
+    border-radius: 10px;
+    box-shadow: 4px 4px 19.1px 0px #2C46CF26;
+    margin-bottom: 62px;
+}
+
+.content__cell {
+    padding: 20px 0;
+    font-family: 'Involve';
+    font-size: 18.5px;
+    line-height: 25px;
+}
+
+.content__row:first-child {
+    color: var(--indigo);
+    font-family: 'Involve';
+    font-size: 20px;
+    line-height: 24.5px;
+}
+
+td:not(:nth-child(4)) {
+    border-right: 1px solid #97A3E0;
+}
+
+.content__cell:first-child {
+    display: inline-block;
+    aspect-ratio: 1.45;
+}
+
+.content__cell:not(:nth-child(2)),
+.content__cell_aligned {
+    text-align: center;
+}
+
+.content__cell:nth-child(2):not(.content__cell_aligned) {
+    padding-left: 32px;
+}
+
+.content__cell_aligned {
+    padding-right: 64px;
+}
+
+.content__row:nth-child(2n) {
+    background: #8191E81F;
+}

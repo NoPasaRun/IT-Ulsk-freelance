@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Geist';
+    src: 
+        url("/static/fonts/geist/GeistVF.ttf") format("truetype"),
+        url("/static/fonts/geist/GeistVF.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Involve';
+    src: 
+        url("/static/fonts/involve/Involve-VF.ttf") format("truetype");
+}

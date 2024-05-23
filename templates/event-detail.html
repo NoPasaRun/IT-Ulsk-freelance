@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% block custom_styles %}
+        <link rel="stylesheet" href="/static/styles/base/swiper/swiper.css">
+        <link rel="stylesheet" href="/static/styles/base/swiper/swiper-media.css">
+        <link rel="stylesheet" href="/static/styles/base/frame.css">
+        <link rel="stylesheet" href="/static/styles/event/event-detail.css">
+    {% endblock %}
+    <title>{% block title %}{{ event.title }}{% endblock %}</title>
+</head>
+<body>
+    {% block main %}
+        <main class="main">
+           <section class="content">
+                <div class="wrapper">
+                    <div class="content__frame">
+                        <div class="content__header">
+                            <img src="{{ event.image_link }}" alt="Event-logo" class="content__logo">
+                            <div class="content__info">
+                                <h2 class="content__title">{{ event.title }}</h2>
+                                <strong class="content__description">{{ event.caption }}</strong>
+                            </div>
+                        </div>
+                        <div class="frame__block">
+                            <div class="frame__title">О мероприятии</div>
+                            <div class="frame__info">
+                                <p class="frame__text frame__text_margin">
+                                    {{ event.short_description }}
+                                </p>
+                                {% for fact in event.facts %}
+                                    <span class="frame__button frame__button_margin">{{ fact }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="frame__block">
+                            <div class="frame__title">Описание</div>
+                            <div class="frame__info frame__info_gap">
+                                {{ event.description|safe }}
+                            </div>
+                        </div>
+                        <div class="frame__block">
+                            <div class="frame__title">Фотографии</div>
+                            <div class="frame__info">
+                                <div class="swiper">
+                                    <div class="swiper-wrapper">
+                                        {% for image in event.image_urls %}
+                                            <div class="swiper-slide">
+                                                <img src="{{ image }}" alt="Image" class="slide__image">
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="swiper-button swiper-button-prev"></div>
+                                    <div class="swiper-button swiper-button-next"></div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </section>
+        </main>
+    {% endblock %}
+    {% block custom_scripts %}
+        <script src="/static/scripts/frame.js"></script>
+    {% endblock %}
+</body>
+</html>
+

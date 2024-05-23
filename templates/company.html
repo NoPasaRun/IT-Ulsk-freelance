@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block custom_styles %}
+        <link rel="stylesheet" href="/static/styles/base/form.css">
+        <link rel="stylesheet" href="/static/styles/base/pagination.css">
+        <link rel="stylesheet" href="/static/styles/company/company.css">
+        <link rel="stylesheet" href="/static/styles/company/company-media.css">
+    {% endblock %}
+    <title>{% block title %}каталог ит компаний{% endblock %}</title>
+</head>
+<body>
+    {% block main %}
+        <main class="main">
+            <section class="catalog">
+                <div class="wrapper">
+                    <h1 class="section__heading">Каталог IT-компаний</h1>
+                    <form action="/companies" method="GET" class="catalog__form">
+                        <div class="form__wrapper">
+                            <div class="form__block">
+                                <input type="text" placeholder="Название компании" class="form__select form__select_search" name="name" id="name">
+                            </div>
+                            <div class="form__block">
+                                <label for="offer" class="form__label">Услуги:</label>
+                                <select name="offer" id="offer" class="form__select">
+                                    <option selected disabled>Выберите услугу</option>
+                                    <option class="offer__option">Разработка программного обеспечения</option>
+                                    <option class="offer__option">IT-технологии</option>
+                                    <option class="offer__option">Услуги в IT</option>
+                                    <option class="offer__option">Консультация и аналитика в IT</option>
+                                    <option class="offer__option">Оптовая торговля</option>
+                                    <option class="offer__option">Оптовая торговля техникой и оборудованием</option>
+                                    <option class="offer__option">Оптовая торговля офисным оборудованием</option>
+                                </select>
+                            </div>
+                            <div class="form__block">
+                                <label for="technology" class="form__label">Технологии:</label>
+                                <select name="technology" id="technology" class="form__select">
+                                    <option selected disabled>Выберите технологию</option>
+                                    <option class="tech__option">Java</option>
+                                    <option class="tech__option">Unity</option>
+                                    <option class="tech__option">C#</option>
+                                    <option class="tech__option">1C - программист</option>
+                                    <option class="tech__option">Python</option>
+                                    <option class="tech__option">стажер</option>
+                                    <option class="tech__option">Backend</option>
+                                    <option class="tech__option">Frontend</option>
+                                    <option class="tech__option">DevOps</option>
+                                    <option class="tech__option">.NET</option>
+                                    <option class="tech__option">QA-специалист</option>
+                                    <option class="tech__option">MVP</option>
+                                    <option class="tech__option">JS</option>
+                                    <option class="tech__option">PHP</option>
+                                    <option class="tech__option">ERP</option>
+                                    <option class="tech__option">CRM</option>
+                                    <option class="tech__option">BI-системы и средства аналитики данных</option>
+                                    <option class="tech__option">CS-Cart</option>
+                                    <option class="tech__option">Magento</option>
+                                    <option class="tech__option">Bitrix</option>
+                                    <option class="tech__option">Mobile</option>
+                                    <option class="tech__option">Analytics</option>
+                                    <option class="tech__option">Farm-one</option>
+                                    <option class="tech__option">Isnss</option>
+                                    <option class="tech__option">Soft</option>
+                                </select>
+                            </div>
+                            <div class="form__block">
+                                <input type="submit" id="filter" class="form__button">
+                            </div>
+                        </div>
+                    </form>
+                    <ul class="catalog__list">
+                        {% for company in queryset %}
+                            <li class="catalog__item">
+                                <div class="item__logo">
+                                    <img src="{{ company.image_link }}" alt="Company-logo" class="item__image">
+                                </div>
+                                <div class="item__info">
+                                    <strong class="item__title">{{ company.name }}</strong>
+                                    <p class="item__description">
+                                        {{ company.description }}
+                                    </p>
+                                    <a href="/company-detail/{{ company.id }}" class="item__link">Узнать больше...</a>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="catalog__pagination">
+                        {% if prev_link %}
+                            <a href="{{ prev_link }}" class="form__button form__button_sm">назад</a>
+                        {% endif %}
+                        <ul class="pagination__list">
+                            {% for item in pagination %}
+                                <li class="pagination__item">
+                                    <a href="{{ item.link }}" class="pagination__link">{{ item.text }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        {% if next_link %}
+                            <a href="{{ next_link }}" class="form__button form__button_sm">следующая</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+        </main>
+    {% endblock %}
+    {% block custom_scripts %}
+        <script src="/static/scripts/company.js"></script>
+    {% endblock %}
+</body>
+</html>

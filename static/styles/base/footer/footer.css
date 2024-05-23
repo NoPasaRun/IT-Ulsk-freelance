@@ -1,0 +1,90 @@
+.footer {
+    box-sizing: border-box;
+    background-color: var(--grey);
+    padding: 5.9% 8.3% 9.6%;
+}
+
+.header__logo_light {
+    display: inline-block;
+    color: var(--white);
+    margin-right: auto;
+    margin-top: 0;
+}
+
+.footer__info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__item {
+    color: var(--white);
+}
+
+.footer__item:first-child {
+    margin-right: 15px;
+}
+
+.footer__social {
+    display: flex;
+}
+
+.footer__title {
+    font-family: 'Involve';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 26px;
+}
+
+.contacts__item:first-child {
+    margin-bottom: 6px;
+}
+
+.nav__link_dark {
+    display: flex;
+    color: var(--white);
+    align-items: center;
+}
+
+.footer__icon {
+    display: inline-block;
+    position: relative;
+    width: 28.5px;
+    aspect-ratio: 1 / 1;
+    margin-right: 20px;
+}
+
+.footer__icon::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.footer__icon_mail::before {
+    background-image: url("/static/images/mail.png");
+}
+
+.footer__icon_phone::before {
+    background-image: url("/static/images/phone.png");
+}
+
+.footer__icon_vk::before {
+    background-image: url("/static/images/vk.png");
+}
+
+.footer__icon_tg::before {
+    background-image: url("/static/images/tg.png");
+}
+
+.item__text {
+    font-family: 'Roboto Light';
+    font-size: 16.5px;
+    font-weight: 300;
+    line-height: 19.5px;
+    display: inline-block;
+}

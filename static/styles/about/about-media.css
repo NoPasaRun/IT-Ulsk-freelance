@@ -1,0 +1,58 @@
+@media (max-width: 800px) {
+    .description__title {
+        font-size: 56px;
+    }
+
+    .description__info {
+        font-size: 18px;
+        max-width: 100%;
+    }
+
+    .illusttration__link {
+        margin: 24px 0;
+    }
+
+    .hero__description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .illustration__description {
+        text-align: center;
+    }
+
+    .description__title {
+        font-size: 44px;
+    }
+
+    .description__info {
+        font-size: 16px;
+    }
+
+    .target__item {
+        padding: 30px 20px;
+        min-width: 100%;
+    }
+
+}
+
+@container grid (max-width: 600px) {
+    .grid__column > .grid__item:nth-child(2) {
+        display: inline-block;
+    }
+
+    .grid__column:first-child > .grid__item:last-child,
+    .grid__column:last-child > .grid__item:first-child {
+        display: none;
+    }
+
+    .grid__column {
+        min-width: 100%;
+    }
+
+    .grid__column:last-child {
+        padding-top: 0;
+    }
+
+}

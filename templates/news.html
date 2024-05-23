@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block custom_styles %}
+        <link rel="stylesheet" href="/static/styles/base/new-card.css">
+        <link rel="stylesheet" href="/static/styles/base/form.css">
+        <link rel="stylesheet" href="/static/styles/news/news.css">
+        <link rel="stylesheet" href="/static/styles/news/news-media.css">
+    {% endblock %}
+    <title>{% block title %}новости{% endblock %}</title>
+</head>
+<body>
+    {% block main %}
+        <main class="main">
+            <section class="latest">
+                <div class="wrapper">
+                    <h2 class="section__heading">Новости недели</h2>
+                    <div class="latest__grid">
+                        {% for new in top %}
+                            <a class="row__item" href="/news-detail?link={{ new.link }}">
+                                <div class="image__foreground"></div>
+                                {% if new.image %}
+                                    <img src="{{ new.image }}" alt="Background" class="latest__image">
+                                {% else %}
+                                    <img src="/static/images/high-res-neuro.png" alt="Background" class="latest__image">
+                                {% endif %}
+                                <span class="latest__date">{{ new.date }}</span>
+                                <p class="latest__text">
+                                    {{ new.title }}
+                                </p>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            <section class="news">
+                <div class="wrapper">
+                    <form action="" method="GET" class="filter__form">
+                        <div class="form__wrapper">
+                            <label for="theme" class="form__text">
+                                Выбери интересующую тебя тему<br>
+                                и отфильтруй список новостей
+                            </label>
+                            <div class="form__input">
+                                <select id="theme" class="form__select" name="theme">
+                                    <option class="select__item" selected disabled>Выберите сферу</option>
+                                    <option class="select__item">Карьера</option>
+                                    <option class="select__item">Разработка</option>
+                                    <option class="select__item">Будущее</option>
+                                    <option class="select__item">Техника</option>
+                                    <option class="select__item">Медиа</option>
+                                    <option class="select__item">Маркетинг</option>
+                                    <option class="select__item">SEO</option>
+                                    <option class="select__item">Дизайн</option>
+                                </select>
+                                <input class="form__button" type="submit" value="Применить">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="news__grid">
+                        {% for new in queryset %}
+                            <a class="new" href="/news-detail?link={{ new.link }}">
+                                <div class="new__header">
+                                    {% if new.image %}
+                                        <img src="{{ new.image }}" alt="Image" class="new__image">
+                                    {% else %}
+                                        <img src="/static/images/high-res-neuro.png" alt="Image" class="new__image">
+                                    {% endif %}
+                                    <strong class="new__title">
+                                        {{ new.title }}
+                                    </strong>
+                                </div>
+                                <div class="new__wrapper">
+                                    <p class="new__text">
+                                        {{ new.description }}
+                                    </p>
+                                    <div class="new__info">
+                                        <span class="new__tag">{{ new.author }}</span>
+                                        <span class="new__date">{{ new.date }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <button class="form__button form__button_resize" id="filter">Показать еще</button>
+                </div>
+            </section>
+        </main>
+    {% endblock %}
+    {% block custom_scripts %}
+        <script src="/static/scripts/news.js"></script>
+    {% endblock %}
+</body>
+</html>

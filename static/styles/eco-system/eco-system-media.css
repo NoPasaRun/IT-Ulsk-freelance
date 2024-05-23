@@ -1,0 +1,39 @@
+@media (max-width: 800px) {
+    .form__button {
+        font-size: 14px;
+    }
+
+    .section__heading {
+        font-size: 25px;
+    }
+
+    .region__block {
+        padding: 30px 25px;
+    }
+    
+    .region__text {
+        font-size: 10px;
+    }
+
+    .region__button {
+        font-size: 12px;
+    }
+
+    .region__button {
+        padding: 5px 25px;
+    }
+
+    .diagram__block {
+        flex-direction: column;
+    }
+
+    .diagram__image {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .region__list_mr {
+        display: none;
+    }
+}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% block custom_styles %}
+        <link rel="stylesheet" href="/static/styles/base/form.css">
+        <link rel="stylesheet" href="/static/styles/base/pagination.css">
+        <link rel="stylesheet" href="/static/styles/ratings/ratings.css">
+        <link rel="stylesheet" href="/static/styles/ratings/ratings-media.css">
+    {% endblock %}
+    <title>{% block title %}рейтинги{% endblock %}</title>
+</head>
+<body>
+    {% block main %}
+        <main class="main">
+            <section class="content">
+                <div class="wrapper">
+                    <div class="content__intro">
+                        <h1 class="section__heading">Рейтинги</h1>
+                        <strong class="content__title">
+                            Рейтинг мобильных разработчиков Ульяновской области по выручке в 2022 г.
+                        </strong>
+                        <p class="content__description">
+                            Рейтинг сформирован на основе открытых данных по выручке юридических лиц, зарегистрированных в УО,
+                            а также на основе предоставленных данных самими компаниями, участвующими в рейтинге.
+                        </p>
+                    </div>
+                    <table class="content__table">
+                        <tr class="content__row">
+                            <th class="content__cell">№</th>
+                            <th class="content__cell content__cell_aligned">Название</th>
+                            <th class="content__cell">Оборот 2022, ₽</th>
+                            <th class="content__cell">Процент прироста</th>
+                        </tr>
+                        {% for rating in queryset %}
+                            <tr class="content__row">
+                                <td class="content__cell">{{ rating.id }}</td>
+                                <td class="content__cell">{{ rating.name }}</td>
+                                <td class="content__cell">{{ rating.income }}</td>
+                                <td class="content__cell">{{ rating.growth }}</td>
+                            </tr>
+                        {% endfor %}
+                     </table>
+                     <div class="catalog__pagination">
+                         {% if prev_link %}
+                             <a href="{{ prev_link }}" class="form__button form__button_sm">назад</a>
+                         {% endif %}
+                         <ul class="pagination__list">
+                            {% for item in pagination %}
+                                <li class="pagination__item">
+                                    <a href="{{ item.link }}" class="pagination__link">{{ item.text }}</a>
+                                </li>
+                            {% endfor %}
+                         </ul>
+                        {% if next_link %}
+                            <a href="{{ next_link }}" class="form__button form__button_sm">следующая</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+        </main>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block custom_styles %}
+        <link rel="stylesheet" href="/static/styles/about/about.css">
+        <link rel="stylesheet" href="/static/styles/about/about-media.css">
+    {% endblock %}
+    <title>{% block title %}о нас{% endblock %}</title>
+</head>
+<body>
+    {% block header %}{% endblock %}
+    {% block main %}
+        <main class="main">
+            <section class="hero">
+                <div class="wrapper">
+                    <div class="hero__illustration">
+                        <div class="illustration__block">
+                            <img class="illustration__image" src="/static/images/robot.png" alt="Robot">
+                        </div>
+                        <div class="illustration__block">
+                            <div class="illustration__description">
+                                <div class="description__info">
+                                    интернет-ресурс<br>
+                                    о кластере технологий
+                                    Ульяновской области
+                                </div>
+                                <div class="description__title">
+                                    IT-ULSK
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__description">
+                        Проект «IT-Ulsk» представляет собой интернет-ресурс, предназначенный для
+                        предоставления пользователям актуальной информации о кластере информационных
+                        технологий Ульяновской области,  ориентирован на большую аудиторию пользователей,
+                        интересующихся ИТ-отраслью региона.
+                    </div>
+                </div>
+            </section>
+            <section class="target">
+                <div class="wrapper">
+                    <h2 class="section__title">Кому это будет интересно?</h2>
+                    <ul class="target__list">
+                        <li class="target__item">
+                            <span class="target__icon"></span>
+                            <div class="item__title">студенты</div>
+                            <div class="item__description">
+                                специалисты, интересующиеся стартом своей
+                                карьеры в сфере информационных технологий
+                            </div>
+                        </li>
+                        <li class="target__item">
+                            <span class="target__icon"></span>
+                            <div class="item__title">
+                                ИТ-компании
+                                Ульяновской области
+                            </div>
+                            <div class="item__description">
+                                компании, заинтересованные в обновлении кадров
+                                и привлечении новых партнёров
+                            </div>
+                        </li>
+                        <li class="target__item">
+                            <span class="target__icon"></span>
+                            <div class="item__title">
+                                ИТ-специалисты
+                                других регионов
+                            </div>
+                            <div class="item__description">
+                                компании, заинтересованные в обновлении кадров
+                                и привлечении новых партнёров
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="hook">
+                <div class="wrapper">
+                    <h2 class="section__title">Что ты можешь сделать?</h2>
+                    <div class="hook__grid">
+                        <div class="grid__column">
+                            <div class="grid__item">
+                                <span class="item__number">01</span>
+                                <div class="item__title">
+                                    Ознакомится с каталогом<br>
+                                    IT-компаний региона
+                                </div>
+                                <div class="item__description">
+                                    В этом разделе можно изучить каталог
+                                    IT-компаний Ульяновской области,
+                                    отфильтровать карточки с информацией
+                                    и изучить подробнее выбранную
+                                </div>
+                            </div>
+                            <div class="grid__item">
+                                <span class="item__number">02</span>
+                                <div class="item__title">
+                                    Узнать о последних<br>
+                                    новостях в сфере IT
+                                </div>
+                                <div class="item__description">
+                                    В этом разделе можно ознакомиться
+                                    с последними тенденциями и новостями,
+                                    произошедшими в IT-сфере
+                                </div>
+                            </div>
+                            <div class="grid__item">
+                                <span class="item__number">03</span>
+                                <div class="item__title">
+                                    Просмотреть рейтинги<br>
+                                    IT-компаний региона
+                                </div>
+                                <div class="item__description">
+                                    В этом разделе можно изучить рейтинги,
+                                    связанные с IT Ульяновской области,
+                                    отфильтровав по нужному критерию
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid__column">
+                            <div class="grid__item">
+                                <span class="item__number">02</span>
+                                <div class="item__title">
+                                    Узнать о последних<br>
+                                    новостях в сфере IT
+                                </div>
+                                <div class="item__description">
+                                    В этом разделе можно ознакомиться
+                                    с последними тенденциями и новостями,
+                                    произошедшими в IT-сфере
+                                </div>
+                            </div>
+                            <div class="grid__item">
+                                <span class="item__number">03</span>
+                                <div class="item__title">
+                                    Просмотреть рейтинги<br>
+                                    IT-компаний региона
+                                </div>
+                                <div class="item__description">
+                                    В этом разделе можно изучить рейтинги,
+                                    связанные с IT Ульяновской области,
+                                    отфильтровав по нужному критерию
+                                </div>
+                            </div>
+                            <div class="grid__item">
+                                <span class="item__number">04</span>
+                                <div class="item__title">
+                                    Изучить IT-экосистему<br>
+                                    Ульяновской области
+                                </div>
+                                <div class="item__description">
+                                    В этом разделе можно ознакомиться с
+                                    IT-экосистемой нашего региона,
+                                    а тажже узнать о ближайших мероприятиях
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    {% endblock %}
+</body>
+</html>

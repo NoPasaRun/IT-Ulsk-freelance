@@ -1,0 +1,24 @@
+.swiper {
+    display: grid;
+    grid-template-rows: 1fr;
+    max-width: 100%;
+    height: fit-content;
+    padding: 0 70px;
+    padding-bottom: 4px;
+}
+
+.swiper-button {
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+    border: 1px solid var(--grey);
+    color: var(--grey);
+}
+
+.swiper-button-prev::after {
+    transform: translateX(-1.5px);
+}
+
+.swiper-button-next::after {
+    transform: translateX(1.5px);
+}

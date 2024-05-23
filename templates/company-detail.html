@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% block custom_styles %}
+        <link rel="stylesheet" href="/static/styles/base/swiper/swiper.css">
+        <link rel="stylesheet" href="/static/styles/base/swiper/swiper-media.css">
+        <link rel="stylesheet" href="/static/styles/base/frame.css">
+        <link rel="stylesheet" href="/static/styles/company/company-detail.css">
+        <link rel="stylesheet" href="/static/styles/company/company-detail-media.css">
+    {% endblock %}
+    <title>{% block title %}{{ company.name }}{% endblock %}</title>
+</head>
+<body>
+    {% block main %}
+        <main class="main">
+           <section class="content">
+                <div class="wrapper">
+                    <div class="content__frame">
+                        <div class="content__header">
+                            <img src="{{ company.image_link }}" alt="Company-logo" class="content__logo">
+                            <h2 class="content__title">{{ company.name }}</h2>
+                        </div>
+                        <div class="frame__block">
+                            <div class="frame__title">о компании</div>
+                            <div class="frame__info">
+                                <p class="frame__text frame__text_margin">
+                                    {{ company.description }}
+                                </p>
+                                <span class="frame__button frame__button_margin">основана в {{ company.creation_date }}</span>
+                                <span class="frame__button">{{ company.quantity }} сотрудников</span>
+                            </div>
+                        </div>
+                        <div class="frame__block">
+                            <div class="frame__title">технологии компании</div>
+                            <div class="frame__info">
+                                <ul class="frame__list">
+                                    {% for technology in company.technologies %}
+                                        <li class="frame__item">{{ technology }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="frame__block">
+                            <div class="frame__title">услуги</div>
+                            <div class="frame__info">
+                                <ul class="frame__list">
+                                    {% for offer in company.offers %}
+                                        <li class="frame__item">{{ offer }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="frame__block">
+                            <div class="frame__title">Значимые проекты</div>
+                            <div class="frame__info">
+                                <div class="frame__paragraph">
+                                    <strong class="paragraph__title">1С:LIMS Управление лабораторией предприятия</strong>
+                                    <p class="frame__text">
+                                        Это решение для контроля качества продукции в течение всего производственного процесса.
+                                        Оно интегрируется с конфигурациями 1С:ERP Управление предприятием и 1С:Комплексная автоматизация 8,
+                                        обеспечивая полный контроль над качеством сырья, полуфабикатов и конечной продукции.
+                                    </p>
+                                </div>
+                                <div class="frame__paragraph">
+                                    <strong class="paragraph__title">1С:Бухгалтерия предприятия 8</strong>
+                                    <p class="frame__text">
+                                        Дополнение к типовой конфигурации "1С:Бухгалтерия предприятия 8" автоматизирует бухгалтерский,
+                                        налоговый и оперативный учет в предприятиях данной отрасли. Решение включает функционал для управления
+                                        продажами, производством, бухгалтерией, складом, закупками и доставкой, адаптированный под специфику хлебобулочного производства.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frame__block">
+                            <div class="frame__title">Вакансии</div>
+                            <div class="frame__info">
+                                <div class="frame__card">
+                                    <strong class="card__title">Web-программист</strong>
+                                    <span class="card__info">от 80 000 ₽ до вычета налогов</span>
+                                    <span class="card__info">
+                                        Требуемый опыт работы: 1–3 года
+                                        Полная занятость, полный день
+                                    </span>
+                                    <a href="#" class="card__link">Узнать больше...</a>
+                                </div>
+                                <div class="frame__card">
+                                    <strong class="card__title">Web-программист</strong>
+                                    <span class="card__info">от 80 000 ₽ до вычета налогов</span>
+                                    <span class="card__info">
+                                        Требуемый опыт работы: 1–3 года
+                                        Полная занятость, полный день
+                                    </span>
+                                    <a href="#" class="card__link">Узнать больше...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frame__block">
+                            <div class="frame__title">Фотографии офиса</div>
+                            <div class="frame__info">
+                                <div class="swiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="/static/images/office-1.png" alt="Image" class="slide__image">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="/static/images/office-2.png" alt="Image" class="slide__image">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="/static/images/office-1.png" alt="Image" class="slide__image">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="/static/images/office-2.png" alt="Image" class="slide__image">
+                                        </div>
+                                    </div>
+                                    <div class="swiper-button swiper-button-prev"></div>
+                                    <div class="swiper-button swiper-button-next"></div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frame__block">
+                            <div class="frame__title">контакты</div>
+                            <div class="frame__info">
+                                <span class="frame__contact">{{ company.address }}</span>
+                                <span class="frame__contact frame__contact_last">{{ company.contact_info }}</span>
+                                <ul class="contact__list">
+                                    <li class="contact__item">
+                                        <a class="contact__link" href="{{ company.vk_link }}">
+                                            <span class="contact__icon_vk"></span>
+                                        </a>
+                                    </li>
+                                    <li class="contact__item">
+                                        <a class="contact__link" href="{{ company.tg_link }}">
+                                            <span class="contact__icon_tg"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </section>
+        </main>
+    {% endblock %}
+    {% block custom_scripts %}
+        <script src="/static/scripts/frame.js"></script>
+    {% endblock %}
+</body>
+</html>

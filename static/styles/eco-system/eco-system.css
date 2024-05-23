@@ -1,0 +1,242 @@
+/* General styles */
+
+.section__heading {
+    font-family: 'Involve';
+    font-size: 32.5px;
+    font-weight: 500;
+    line-height: 43px;
+    color: var(--indigo);
+    margin-bottom: 40px;
+    min-width: 100%;
+    text-transform: uppercase;
+}
+
+.section__heading_bold {
+    font-weight: 700;
+    min-width: 0;
+    max-width: 65%;
+}
+
+.button__wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.form__button {
+    display: inline-block;
+    height: fit-content;
+}
+
+/* Region info block */
+
+.region {
+    margin-bottom: 73px;
+}
+
+.form__button_mb {
+    margin-bottom: 25px;
+}
+
+.region__block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border-radius: 30px;
+    padding: 50px 43px;
+}
+
+.region__image {
+    max-width: 100%;
+    margin-bottom: 80px;
+}
+
+.region__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.region__list:last-child {
+    max-width: 60%;
+}
+
+.region__list_mr {
+    margin-right: auto;
+}
+
+.region__button {
+    width: 100%;
+    text-align: center;
+}
+
+.region__text {
+    display: inline-block;
+    font-family: 'Involve';
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26.5px;
+}
+
+/* Diagram block */
+
+.diagram {
+    margin-bottom: 68px;
+}
+
+.diagram__description {
+    font-family: 'Involve';
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+    max-width: 428px;
+    margin-bottom: 37px;
+}
+
+.diagram__block {
+    box-shadow: 0px 4px 4px 0px #00000040;
+    display: flex;
+    border-radius: 30px;
+    padding: 0 53px 48px 32px;
+}
+
+.diagram__image {
+    margin-right: 44px;
+    height: min-content;
+    width: 28.5vw;
+}
+
+.diagram__list {
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    margin-bottom: 50px;
+}
+
+.region__item {
+    display: flex;
+    align-items: center;
+    
+}
+
+.diagram__label {
+    font-family: 'Involve';
+    font-size: 4.16vw;
+    font-weight: 700;
+    line-height: 61px;
+    margin-right: 64px;
+}
+
+.diagram__text {
+    font-family: 'Involve';
+    font-size: 1.66vw;
+    font-weight: 500;
+    line-height: 26.5px; 
+}
+
+.region__item:first-child > .diagram__label {
+    color: #97A3E0;
+}
+
+.region__item:nth-child(2) > .diagram__label {
+    color: #4E66DF;
+}
+
+.region__item:last-child > .diagram__label {
+    color: #3D55D1;
+}
+
+/* Events block */
+
+.events {
+    margin-bottom: 43px;
+}
+
+.frame__grid {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 44px;
+    justify-content: center;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    min-height: max-content;
+    padding: 41px 56px 41px 45px;
+    justify-content: space-between;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    border-radius: 30px;
+    flex-basis: calc(50% - 20px);
+}
+
+.frame__top-info {
+    display: flex;
+    gap: 29px;
+    margin-bottom: 10px;
+}
+
+.frame__top-right-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.frame__image {
+    width: 96px;
+    height: min-content;
+}
+
+.frame__title {
+    font-family: 'Involve';
+    font-size: 32.5px;
+    font-weight: 700;
+    line-height: 43px;
+    text-transform: uppercase;
+}
+
+.frame__description {
+    font-family: 'Involve';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19.5px;
+    width: min-content;
+}
+
+.frame__text {
+    max-width: 389px;
+    max-height: 100%;
+    overflow-y: auto;
+    font-family: 'Involve';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21.5px;
+    margin-bottom: 10px;
+}
+
+.frame__link {
+    text-align: right;
+}
+
+.frame__button {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* History block */
+
+.history {
+    margin-bottom: 55px;
+}
+
+.frame_side-pad {
+    justify-content: center;
+    padding: 10px 30px;
+    height: 278px;
+    flex-basis: calc(33.33% - 40px);
+}
+
+.frame__text_center {
+    text-align: center;
+}

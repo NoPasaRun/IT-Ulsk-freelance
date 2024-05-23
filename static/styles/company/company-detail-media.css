@@ -1,0 +1,9 @@
+@media (max-width: 480px) {
+    .content__title {
+        font-size: 16px;
+    }
+
+    .frame__contact_last::before {
+        left: -5%;
+    }    
+}

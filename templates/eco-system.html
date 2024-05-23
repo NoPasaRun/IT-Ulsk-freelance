@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% block custom_styles %}
+        <link rel="stylesheet" href="/static/styles/base/form.css">
+        <link rel="stylesheet" href="/static/styles/eco-system/eco-system.css">
+        <link rel="stylesheet" href="/static/styles/eco-system/eco-system-media.css">
+    {% endblock %}
+    <title>{% block title %}ит-экосистема региона{% endblock %}</title>
+</head>
+<body>
+    {% block main %}
+        <main class="main">
+            <section class="region">
+                <div class="wrapper wrapper_align">
+                    <h1 class="section__heading">ИТ-экосистема региона</h1>
+                    <span class="form__button form__button_mb">УЛЬЯНОВСКАЯ ОБЛАСТЬ</span>
+                    <div class="region__block">
+                        <img src="/static/images/map.png" alt="Map" class="region__image">
+                        <ul class="region__list region__list_mr">
+                            <li class="region__item">
+                                <span class="region__button form__button">более 1470</span>
+                            </li>
+                            <li class="region__item">
+                                <span class="region__button form__button">5862</span>
+                            </li>
+                            <li class="region__item">
+                                <span class="region__button form__button">285 млн руб.</span>
+                            </li>
+                            <li class="region__item">
+                                <span class="region__button form__button">29,68 млн $</span>
+                            </li>
+                        </ul>
+                        <ul class="region__list">
+                            <li class="region__item">
+                                <span class="region__text">
+                                    ИТ-организаций, в т.ч. 178 аккредитованы в Минцифры России
+                                </span>
+                            </li>
+                            <li class="region__item">
+                                <span class="region__text">
+                                    Среднесписочная численность работников в ИТ-отрасли
+                                </span>
+                            </li>
+                            <li class="region__item">
+                                <span class="region__text">
+                                    Налоговые поступления в региональный бюджет
+                                </span>
+                            </li>
+                            <li class="region__item">
+                                <span class="region__text">
+                                    Объём экспорта телекоммуникационных, компьютерных и информационных услуг
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="diagram">
+                <div class="wrapper">
+                    <strong class="diagram__description">
+                        Ульяновская область — один из цифровых лидеров страны
+                    </strong>
+                    <div class="diagram__block">
+                        <img src="/static/images/diagram.png" alt="Diagram" class="diagram__image">
+                        <div class="diagram__info">
+                            <ul class="diagram__list">
+                                <li class="region__item">
+                                    <span class="diagram__label">11%</span>
+                                    <span class="diagram__text">деятельность в сфере телекоммуникаций</span>
+                                </li>
+                                <li class="region__item">
+                                    <span class="diagram__label">23%</span>
+                                    <span class="diagram__text">деятельность в области ИТ</span>
+                                </li>
+                                <li class="region__item">
+                                    <span class="diagram__label">66%</span>
+                                    <span class="diagram__text">
+                                        разработка компьютерного ПО, консультационные и другие сопутствующие услуги
+                                    </span>
+                                </li>
+                            </ul>
+                            <span class="form__button">К каталогу IT-компаний</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="events">
+                <div class="wrapper">
+                    <h2 class="section__heading section__heading_bold">
+                        ИТ-отрасль региона — это не только компании, но и крупные ит-конференции, олимпиады и конкурсы
+                    </h2>
+                    <div class="frame__grid">
+                        {% for event in queryset %}
+                            <div class="frame">
+                                <div class="frame__top-info">
+                                    <img src="{{ event.image_link }}" alt="Event-logo" class="frame__image">
+                                    <div class="frame__top-right-info">
+                                        <strong class="frame__title">{{ event.title }}</strong>
+                                        <span class="frame__description">{{ event.caption }}</span>
+                                    </div>
+                                </div>
+                                <p class="frame__text">
+                                    {{ event.short_description }}
+                                </p>
+                                <a href="/event-detail/{{ event.id }}" class="frame__link">
+                                    <span class="form__button">Подробнее</span>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            <section class="history">
+                <div class="wrapper">
+                    <h2 class="section__heading section__heading_bold">История развития местной ИТ-отрасли и её выдающиеся деятели</h2>
+                    <div class="frame__grid">
+                        <div class="frame frame_side-pad">
+                            <p class="frame__text frame__text_center">
+                                В Ульяновской области работает 1,5 тысячи
+                                ИТ-организаций, в которых трудятся более 6-и тысяч специалистов
+                            </p>
+                        </div>
+                        <div class="frame frame_side-pad">
+                            <p class="frame__text frame__text_center">
+                                В области успешно функционируют несколько крупных и многочисленных малых и
+                                средних предприятий, специализирующихся на разработке программного обеспечения и других смежных областях
+                            </p>
+                        </div>
+                        <div class="frame frame_side-pad">
+                            <p class="frame__text frame__text_center">
+                                ИТ-отрасль в Ульяновской области является одной изнаиболее развитых и перспективных отраслей экономики региона
+                            </p>
+                        </div>
+                        <div class="frame frame_side-pad">
+                            <p class="frame__text frame__text_center">
+                                Регион активно привлекает внимание инвесторов и предпринимателей в сфере ИТ благодаря наличию
+                                квалифицированных кадров, развитой инфраструктуре и поддержке со стороны региональных властей
+                            </p>
+                        </div>
+                        <div class="frame frame_side-pad">
+                            <p class="frame__text frame__text_center">
+                                ИТ-отрасль в Ульяновской области является перспективной и стремительно развивающейся сферой экономики,
+                                которая приносит региону значительные доходы и способствует его интеграции в мировойинформационный рынок
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    {% endblock %}
+</body>
+</html>

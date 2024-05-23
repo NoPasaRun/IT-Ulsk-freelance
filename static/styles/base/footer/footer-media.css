@@ -1,0 +1,25 @@
+@media (max-width: 800px) {
+    .header__logo_light {
+        margin-right: 0;
+        flex-grow: 2;
+    }
+
+    .footer__title,
+    .item__text {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 5% 4%;
+    }
+
+    .footer__info {
+        min-width: 100%;
+    }
+
+    .footer__title {
+        padding-right: 20px;
+    }
+}

@@ -1,0 +1,15 @@
+@media (max-width: 480px) {
+    .swiper {
+        padding: 0 12vw;
+        padding-bottom: 10px;
+    }
+
+    .swiper-button {
+        width: 6.4vw;
+        height: 6.4vw;
+    }
+
+    :root {
+        --swiper-navigation-size: 12px;
+    }
+}

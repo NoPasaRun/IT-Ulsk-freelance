@@ -1,0 +1,39 @@
+@media (max-width: 800px) {
+    .content__cell {
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .content__cell {
+        font-size: 12px;
+        padding: 10px 0;
+    }
+
+    .content__row > .content__cell:not(:first-child) {
+        line-height: 1em;
+    }
+
+    .content__cell:first-child {
+        aspect-ratio: 2.25;
+    }
+
+    .content__title {
+        font-size: 20px;
+    }
+
+    .content__description {
+        font-size: 14px;
+    }
+
+    .form__select {
+        font-size: 14px;
+        height: fit-content;
+        padding: 7px 0;
+        padding-left: 20px;
+    }
+
+    .form__select {
+        background-size: 6%;
+    }
+}

@@ -1,0 +1,117 @@
+@media (max-width: 1200px) {
+
+    .header__nav {
+        flex-grow: 2;
+        justify-content: flex-end;
+    }
+
+    .menu-button-container {
+        display: flex;
+        z-index: 4;
+    }
+
+    .nav__list {
+        height: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: flex-start;
+        z-index: 3;
+    }
+
+    #menu-toggle:checked ~ .nav__list {
+        height: 100vh;
+    }
+
+    #menu-toggle ~ .nav__list .nav__item {
+        opacity: 0;
+        height: 0;
+        border: 0;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    #menu-toggle:checked ~ .nav__list::before {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: black;
+        opacity: 0.5;
+        z-index: -1;
+    }
+
+    #menu-toggle:checked ~ .nav__list .nav__item {
+        display: inline-block;
+        opacity: 1;
+        border: 1px solid var(--grey);
+        height: 2.5em;
+        transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+    }
+      
+    .nav__item {
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+        background-color: var(--grey);
+        padding: 10px 20px;
+    }
+
+    .nav__link {
+        color: var(--white);
+    }
+      
+    .nav__item:not(:last-child) {
+        border-bottom: 1px solid #444;
+    }
+}
+
+@media (max-width: 480px) {
+    .header__element:nth-child(2) {
+        order: 3;
+        padding-right: 0;
+    }
+
+    .header__element:first-child {
+        display: none;
+    }
+
+    .header__element:last-child {
+        flex-grow: 2;
+        padding-right: 20px;
+    }
+
+    .header__logo {
+        font-size: 20px;
+    }
+
+    .header__nav {
+        max-width: fit-content;
+    }
+
+    .menu-button-container {
+        width: 20px;
+    }
+      
+    .menu-button,
+    .menu-button::before,
+    .menu-button::after {
+        height: 3px;
+        width: 20px;
+    }
+
+    .menu-button::before {
+        content: '';
+        margin-top: -6px;
+    }
+    
+    .menu-button::after {
+        content: '';
+        margin-top: 6px;
+    }
+}

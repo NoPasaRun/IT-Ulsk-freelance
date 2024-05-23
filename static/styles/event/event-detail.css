@@ -1,0 +1,30 @@
+.content__frame {
+    border-radius: 30px;
+}
+
+.content__header {
+    align-items: start;
+}
+
+.content__title {
+    margin-top: 10px;
+}
+
+.content__description {
+    font-family: 'Involve';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21.5px;
+}
+
+.frame__paragraph {
+    min-width: 100%;
+}
+
+.frame__info_gap {
+    gap: 20px;
+}
+
+.frame__list {
+    margin-left: 1.4vw;
+}

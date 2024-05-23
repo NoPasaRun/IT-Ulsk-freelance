@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/scripts/jquery.js"></script>
+    <link rel="stylesheet" href="/static/styles/base/swiper/swiper-bundle.min.css">
+    <script src="/static/scripts/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="/static/styles/base/normalize.css">
+    <link rel="stylesheet" href="/static/styles/base/base.css">
+    <link rel="stylesheet" href="/static/styles/base/font.css">
+    <link rel="stylesheet" href="/static/styles/base/header/header.css">
+    <link rel="stylesheet" href="/static/styles/base/header/header-media.css">
+    <link rel="stylesheet" href="/static/styles/base/footer/footer.css">
+    <link rel="stylesheet" href="/static/styles/base/footer/footer-media.css">
+    {% block custom_styles %}
+    {% endblock %}
+    <title>{% block title %}О проекте{% endblock %}</title>
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper wrapper_row wrapper_between">
+            <span class="header__logo header__element">О проекте</span>
+            <nav class="header__nav header__element">
+                <input id="menu-toggle" type="checkbox" />
+                <label class='menu-button-container' for="menu-toggle">
+                <div class='menu-button'></div>
+                </label>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="/news" class="nav__link">
+                            новости
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/companies" class="nav__link">
+                            каталог ит компаний
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/eco-system" class="nav__link">
+                            ит-экосистема региона
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="/ratings" class="nav__link">
+                            рейтинги
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <span class="header__logo header__element">IT-Ulsk</span>
+        </div>
+    </header>
+    {% block main %}{% endblock %}
+    <footer class="footer">
+        <div class="wrapper wrapper_row wrapper_no-mr wrapper_wrap">
+            <span class="header__logo header__logo_light">IT-Ulsk</span>
+            <div class="footer__info">
+                <div class="footer__item">
+                    <div class="footer__title">наши контакты</div>
+                    <ul class="footer__contacts">
+                        <li class="contacts__item">
+                            <a class="nav__link nav__link_dark" href="mailto:info@it-ulsk.ru">
+                                <span class="footer__icon footer__icon_mail"></span>
+                                <span class="item__text">info@it-ulsk.ru</span>
+                            </a>
+                        </li>
+                        <li class="contacts__item">
+                            <a class="nav__link nav__link_dark" href="tel:+79000000000">
+                                <span class="footer__icon footer__icon_phone"></span>
+                                <span class="item__text">+7 (900) 000-00-00</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__item">
+                    <div class="footer__title">социальные сети</div>
+                    <ul class="footer__social">
+                        <li class="social__item">
+                            <a class="nav__link nav__link_dark" href="#">
+                                <span class="footer__icon footer__icon_vk"></span>
+                            </a>
+                        </li>
+                        <li class="social__item">
+                            <a class="nav__link nav__link_dark" href="#">
+                                <span class="footer__icon footer__icon_tg"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% block custom_scripts %}{% endblock %}
+</body>
+</html>

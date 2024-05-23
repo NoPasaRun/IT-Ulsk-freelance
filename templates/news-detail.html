@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block custom_styles %}
+        <link rel="stylesheet" href="/static/styles/base/new-card.css">
+        <link rel="stylesheet" href="/static/styles/base/swiper/swiper.css">
+        <link rel="stylesheet" href="/static/styles/news/news-detail.css">
+        <link rel="stylesheet" href="/static/styles/news/news-detail-media.css">
+        <link rel="stylesheet" href="/static/styles/base/swiper/swiper-media.css">
+    {% endblock %}
+    <title>{% block title %}{{ main_new.title }}{% endblock %}</title>
+</head>
+<body>
+    {% block main %}
+        <main class="main">
+            <section class="content">
+                <div class="wrapper">
+                    <div class="content__block">
+                        {% if main_new.image %}
+                            <img src="{{ main_new.image }}" alt="illustration" class="content__image">
+                        {% else %}
+                            <img src="/static/images/high-res-neuro.png" alt="Illustration" class="content__image">
+                        {% endif %}
+                        <h2 class="content__title">
+                            {{ main_new.title }}
+                        </h2>
+                        <p class="content__description">
+                            {{ main_new.text|safe }}
+                        </p>
+                        <hr class="content__bar">
+                        <div class="content__info">
+                            <span class="content__tag">{{ main_new.author }}</span>
+                            <span class="content__date">{{ main_new.date }}</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="recomend">
+                <div class="wrapper wrapper_no-mr">
+                    <h2 class="section__heading">Рекомендации для вас</h2>
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            {% for new in queryset %}
+                                <a class="new swiper-slide" href="/news-detail?link={{ new.link }}">
+                                    <div class="new__header">
+                                        {% if new.image %}
+                                            <img src="{{ new.image }}" alt="Image" class="new__image">
+                                        {% else %}
+                                            <img src="/static/images/high-res-neuro.png" alt="Image" class="new__image">
+                                        {% endif %}
+                                        <strong class="new__title">
+                                            {{ new.title }}
+                                        </strong>
+                                    </div>
+                                    <div class="new__wrapper">
+                                        <p class="new__text">
+                                            {{ new.description }}
+                                        </p>
+                                        <div class="new__info">
+                                            <span class="new__tag">{{ new.author }}</span>
+                                            <span class="new__date">{{ new.date }}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-button swiper-button-prev"></div>
+                        <div class="swiper-button swiper-button-next"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    {% endblock %}
+    {% block custom_scripts %}
+        <script src="/static/scripts/news-detail.js"></script>
+    {% endblock %}
+</body>
+</html>
