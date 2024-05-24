@@ -12,15 +12,17 @@
 }
 
 .header__nav {
-    padding-right: 20px;
+    padding: 0 40px;
     display: flex;
+    flex-grow: 2;
 }
 
 .nav__list {
     display: flex;
-    gap: 91px;
     height: 100%;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
 .nav__item:nth-child(2) {

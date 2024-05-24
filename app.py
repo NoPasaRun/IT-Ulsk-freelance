@@ -3,6 +3,8 @@ import json
 import math
 import os
 import random
+from collections import OrderedDict
+from typing import List
 
 from flask import Flask, render_template, request, session, redirect, Blueprint
 from pathlib import Path
@@ -170,6 +172,69 @@ def event_detail(event_id: int):
     if event is not None:
         return render_template("event-detail.html", event=event)
     return redirect("/eco-system")
+
+
+def generate_distribution(queryset: List, attr_name: str, limit: int = 5):
+    values = {"total": 0, "data": OrderedDict(), "amount": limit}
+    for item in queryset:
+        for attr_val in getattr(item, attr_name, []):
+            values["data"][attr_val] = values["data"].get(attr_val, 0) + 1
+    values["total"] = total = sum(values["data"].values())
+    values["data"] = {
+        key: values["data"][key]
+        for key in sorted(values["data"], key=values["data"].get)[-limit:]
+    }
+    values["data"]["Other"] = total - sum(values["data"].values())
+    return values
+
+
+def generate_histogram_y(queryset: List, limit: int = 7):
+    max_val = round(queryset[0].income / 10 ** 6, 2)
+    min_val = round(queryset[-1].income / 10 ** 6, 2)
+
+    add = (max_val - min_val) // limit
+    values = [min_val, *[min_val + add * i for i in range(1, limit - 1)], max_val]
+
+    return list(map(
+        lambda val: f"{val} млн" if val < 1000 else f"{round(val / 1000, 2)} млрд", values
+    ))
+
+
+def generate_histogram_x(queryset: List):
+    max_val = max(queryset, key=lambda item: item.income)
+    return list(map(
+        lambda item: {
+            "title": item.name,
+            "procent": item.income / max_val.income
+        }, queryset
+    ))
+
+
+@app.get("/dashboard/")
+@router.get("/dashboard/")
+def dashboard():
+    with Session() as ses:
+        queryset = Company.all(ses, name="", offer="", technology="")
+
+    tech_dist = generate_distribution(queryset, "technologies")
+    offer_dist = generate_distribution(queryset, "offers")
+
+    histogram_queryset = sorted(queryset, key=lambda item: item.income)[-10:]
+    hist_y = generate_histogram_y(histogram_queryset)
+    hist_x = generate_histogram_x(histogram_queryset)
+
+    country_data = {"Россия": 5, "Украина": 3, "Беларусь": 6, "Молдавия": 9, "Азербайджан": 2}
+    page_data = {"Рейтинги": 9, "Новости": 11, "ИТ-компании": 5, "Экосистема региона": 3, "Дашборды": 7}
+
+    return render_template(
+        "dashboard.html",
+        tech_dist=tech_dist,
+        offer_dist=offer_dist,
+        hist_y=hist_y, hist_x=hist_x,
+        country_data={"total": sum(country_data.values()), "data": country_data, "amount": len(country_data)},
+        page_data={"total": sum(page_data.values()), "data": page_data, "amount": len(page_data)}
+
+    )
 
 
 if __name__ == '__main__':

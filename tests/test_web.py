@@ -7,7 +7,7 @@ from app import create_app
 ROUTES = [
     "/", "/news", "/news-detail", "/companies",
     "/ratings", "/company-detail/1", "/eco-system",
-    "/event-detail/1"
+    "/event-detail/1", "/dashboard"
 ]
 root = Path(".").parent.parent
 

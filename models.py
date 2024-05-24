@@ -54,6 +54,11 @@ class Company(Base):
     tg_link: Mapped[str] = mapped_column(String(64), nullable=True)
 
     @classmethod
+    def order_by_tech(cls, unordered: List['Company'], max_value) -> List['Company']:
+        output = session.execute(select(cls))
+
+
+    @classmethod
     def all(cls, session: Session, name: str, offer: str, technology: str) -> List['Company']:
         filters = filter(lambda val: val is not None,
              [
