@@ -20,7 +20,7 @@
 <body>
     <header class="header">
         <div class="wrapper wrapper_row wrapper_between">
-            <span class="header__logo header__element">О проекте</span>
+            <span class="header__logo header__element" onclick="window.location = '/'">О проекте</span>
             <nav class="header__nav header__element">
                 <input id="menu-toggle" type="checkbox" />
                 <label class='menu-button-container' for="menu-toggle">
@@ -54,13 +54,13 @@
                     </li>
                 </ul>
             </nav>
-            <span class="header__logo header__element">IT-Ulsk</span>
+            <span class="header__logo header__element" onclick="window.location = '/'">IT-Ulsk</span>
         </div>
     </header>
     {% block main %}{% endblock %}
     <footer class="footer">
         <div class="wrapper wrapper_row wrapper_no-mr wrapper_wrap">
-            <span class="header__logo header__logo_light">IT-Ulsk</span>
+            <span class="header__logo header__logo_light" onclick="window.location = '/'">IT-Ulsk</span>
             <div class="footer__info">
                 <div class="footer__item">
                     <div class="footer__title">наши контакты</div>

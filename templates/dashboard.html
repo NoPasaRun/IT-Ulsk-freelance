@@ -15,11 +15,156 @@
             <h1 class="section__heading section__heading_big">Дашборды</h1>
             <section class="circles">
                 <div class="wrapper">
+                    <h3 class="section__heading">Аналитика IT-клстера Ульяновской области</h3>
+                    <div class="diagram__block diagram__block_row">
+                        <div class="diagram">
+                            <strong class="diagram__title">Уровень зарплат IT-специалистов в Ульяновске</strong>
+                            <p class="diagram__description">
+                                Можете выбрать интересующую вас квалификацию
+                            </p>
+                            <div class="accordeon">
+                                <ul class="accordeon__list">
+                                    <li class="accordeon__item accordeon__item_active">Junior</li>
+                                    <li class="accordeon__item">Middle</li>
+                                    <li class="accordeon__item">Senior</li>
+                                </ul>
+                                <div class="accordeon__content">
+                                    <div class="accordeon__block">
+                                        <strong class="diagram__title">Junior</strong>
+                                        <p class="diagram__description">
+                                            Средний заработок составляет 55 000₽
+                                        </p>
+                                        <div class="bar">
+                                            <div class="bar__outer">
+                                                <span class="bar__number" style="left: -3%">36k</span>
+                                                <span class="bar__number" style="left: 97%">121k</span>
+                                            </div>
+                                            <div class="bar__inner" style="right: 35%; left: 8%">
+                                                <span class="bar__number" style="left: -3%">44k</span>
+                                                <span class="bar__number bar__number_value" style="left: 9%">56k</span>
+                                                <span class="bar__border" style="left: 12%"></span>
+                                                <span class="bar__number" style="left: 97%;">86k</span>
+                                            </div>
+                                        </div>
+                                        <ul class="diagram__list diagram__list_row">
+                                            <li class="diagram__item diagram__item_small" style="--color: #2C46CF;">Встречаются часто</li>
+                                            <li class="diagram__item diagram__item_small" style="--color: #F1F1F1;">Встречаются редко</li>
+                                        </ul>
+                                    </div>
+                                    <div class="accordeon__block accordeon__block_hidden">
+                                        <strong class="diagram__title">Middle</strong>
+                                        <p class="diagram__description">
+                                            Средний заработок составляет 55 000₽
+                                        </p>
+                                        <div class="bar">
+                                            <div class="bar__outer">
+                                                <span class="bar__number" style="left: -3%">36k</span>
+                                                <span class="bar__number" style="left: 97%">121k</span>
+                                            </div>
+                                            <div class="bar__inner" style="right: 35%; left: 8%">
+                                                <span class="bar__number" style="left: -3%">44k</span>
+                                                <span class="bar__number bar__number_value" style="left: 9%">56k</span>
+                                                <span class="bar__border" style="left: 12%"></span>
+                                                <span class="bar__number" style="left: 97%;">86k</span>
+                                            </div>
+                                        </div>
+                                        <ul class="diagram__list diagram__list_row">
+                                            <li class="diagram__item diagram__item_small" style="--color: #2C46CF;">Встречаются часто</li>
+                                            <li class="diagram__item diagram__item_small" style="--color: #F1F1F1;">Встречаются редко</li>
+                                        </ul>
+                                    </div>
+                                    <div class="accordeon__block accordeon__block_hidden">
+                                        <strong class="diagram__title">Senior</strong>
+                                        <p class="diagram__description">
+                                            Средний заработок составляет 55 000₽
+                                        </p>
+                                        <div class="bar">
+                                            <div class="bar__outer">
+                                                <span class="bar__number" style="left: -3%">36k</span>
+                                                <span class="bar__number" style="left: 97%">121k</span>
+                                            </div>
+                                            <div class="bar__inner" style="right: 35%; left: 8%">
+                                                <span class="bar__number" style="left: -3%">44k</span>
+                                                <span class="bar__number bar__number_value" style="left: 9%">56k</span>
+                                                <span class="bar__border" style="left: 12%"></span>
+                                                <span class="bar__number" style="left: 97%;">86k</span>
+                                            </div>
+                                        </div>
+                                        <ul class="diagram__list diagram__list_row">
+                                            <li class="diagram__item diagram__item_small" style="--color: #2C46CF;">Встречаются часто</li>
+                                            <li class="diagram__item diagram__item_small" style="--color: #F1F1F1;">Встречаются редко</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="diagram__description">
+                            Служба исследований hh.ru, сайта для поиска работы и сотрудников, проанализировала 
+                            спрос на ИТ-специалистов – за год число вакансий для программистов и разработчиков в 
+                            России выросло на 72,4%, в Ульяновской области – на 73%.
+                            <br><br>
+                            Наиболее высокую зарплату программистам предлагают в Москве (174,5 тысячи), Санкт-Петербурге 
+                            (152,2 тысячи) и в Новосибирской области (143,7 тысячи). Ульяновская область - на пятом месте, 
+                            115,9 тысяч рублей.
+                        </p>
+                        <div class="diagram">
+                            <strong class="diagram__title">Статистика трудоустройства в IT</strong>
+                            <p class="diagram__description">
+                                Здесь собрана информация о трудоустройстве сотрудников в сфере IT за 2024 г.
+                            </p>
+                            <div class="histogram__wrapper">
+                                <div class="data__wrapper">
+                                    <ul class="values__wrapper">
+                                        {% for label in date_y %}
+                                            <li class="values__label">{{ label }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    <ul class="column__wrapper">
+                                        {% for label in date_x %}
+                                            <div class="histogram-column__wrapper">
+                                                <li class="histogram__column" style="--height: {{ label.procent * 100}}%; --opacity: {{ label.procent }}; --color: #2C46CF;"></li>
+                                                <span class="values__label values__label_transform">{{ label.title }}</span>
+                                            </div>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="diagram">
+                            <strong class="diagram__title">Востребованность специалистов</strong>
+                            <div class="circle__data circle__data_large">
+                                <ul class="diagram__list">
+                                    {% for title, value in profession_data.data.items() %}
+                                        {% set procent = (value / profession_data.total * 100)|round %}
+                                        <li class="diagram__item" style="--opacity: {{ (loop.index + 1) / profession_data.amount}}; --color: #2C46CF;">{{ title }} ({{ procent }}%)</li>
+                                    {% endfor %}
+                                </ul>
+                                <div class="circle__diagram">
+                                    {% set angle = namespace(value=0) %}
+                                    {% for value in profession_data.data.values() %}
+                                        {% set procent = value / profession_data.total * 100 %}
+                                        <div class="circle__part"
+                                        style="--procent: {{ procent - gap / profession_data.amount }}%; --angle: {{ angle.value }}deg; --opacity: {{ (loop.index + 1) / profession_data.amount}}; --color: #2C46CF;">
+                                        </div>
+                                        {% set angle.value = angle.value + procent * 3.6 %}
+                                    {% endfor %}
+                                </div>
+                                <p class="diagram__description diagram__description_thin">
+                                    На данной диаграмме показано 5 самых востребованных профессий в IT-сфере 
+                                    Ульяновской области на данный момент и количество свободных вакансий
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="circles">
+                <div class="wrapper">
                     <h3 class="section__heading">Аналитика IT-компаний Ульяновской области</h3>
                     <div class="diagram__block">
                         <div class="diagram">
                             <strong class="diagram__title">Технологии IT-компаний</strong>
-                            <p class="diagram__decription">
+                            <p class="diagram__description">
                                 Отображены 5 самых популярных технологий, используемых в 
                                 IT-компаниях Ульяновской области.
                             </p>
@@ -44,7 +189,7 @@
                         </div>
                         <div class="diagram">
                             <strong class="diagram__title">Услуги IT-компаний</strong>
-                            <p class="diagram__decription">
+                            <p class="diagram__description">
                                 Отображены 5 самых популярных услуг, используемых в 
                                 IT-компаниях Ульяновской области.
                             </p>
@@ -76,22 +221,24 @@
                     <div class="diagram__block">
                         <div class="diagram">
                             <strong class="diagram__title">Топ-10 компаний</strong>
-                            <p class="diagram__decription">
+                            <p class="diagram__description">
                                 На гистограмме отображены топ-10 компаний по оборотам за 2024 год.
                             </p>
                             <div class="histogram__wrapper">
-                                <ul class="values__wrapper">
-                                    {% for label in hist_y %}
-                                        <li class="values__label">{{ label }}</li>
-                                    {% endfor %}
-                                </ul>
-                                <ul class="column__wrapper">
-                                    {% for label in hist_x %}
-                                        <li class="histogram__column" style="--height: {{ label.procent * 100}}%; --opacity: {{ label.procent * 5 }}; --color: #2C46CF;"></li>
-                                    {% endfor %}
-                                </ul>
+                                <div class="data__wrapper">
+                                    <ul class="values__wrapper">
+                                        {% for label in hist_y %}
+                                            <li class="values__label">{{ label }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    <ul class="column__wrapper">
+                                        {% for label in hist_x %}
+                                            <li class="histogram__column" style="--height: {{ label.procent * 100}}%; --opacity: {{ label.procent * 5 }}; --color: #2C46CF;"></li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
                                 <div class="list__wrapper">
-                                    <ul class="diagram__list">
+                                    <ul class="diagram__list diagram__list_mr">
                                         {% for label in hist_x %}
                                             {% if loop.index < 6 %}
                                                 <li class="diagram__item diagram__item_fixed-width" style="--opacity: {{ label.procent * 5 }}; --color: #2C46CF;">{{ label.title }}</li>
@@ -117,7 +264,7 @@
                     <div class="diagram__block">
                         <div class="diagram">
                             <strong class="diagram__title">Распределение по странам</strong>
-                            <p class="diagram__decription">
+                            <p class="diagram__description">
                                 Пользователи таких стран нас уже посетили.
                             </p>
                             <div class="circle__data">
@@ -141,7 +288,7 @@
                         </div>
                         <div class="diagram">
                             <strong class="diagram__title">Часто посещаемые страницы</strong>
-                            <p class="diagram__decription">
+                            <p class="diagram__description">
                                 Самыми интересными страницами считают:
                             </p>
                             <div class="circle__data">
@@ -167,6 +314,9 @@
                 </div>
             </section>
         </main>
+    {% endblock %}
+    {% block custom_scripts %}
+        <script src="/static/scripts/dashboard.js"></script>
     {% endblock %}
 </body>
 </html>

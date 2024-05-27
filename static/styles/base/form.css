@@ -12,12 +12,15 @@
     font-weight: 400;
     line-height: 26.5px;
     margin-right: 31.5px;
-    margin-bottom: 30px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background: url("/static/images/dropdown-arrow.png") 95% / 4% no-repeat;
 
+}
+
+.form__select:not(:last-child) {
+    margin-bottom: 30px;
 }
 
 .form__button {
@@ -32,4 +35,5 @@
     outline: none;
     border-radius: 21px;
     cursor: pointer;
+    margin-top: 20px;
 }

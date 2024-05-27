@@ -3,12 +3,12 @@ from datetime import date, datetime
 
 from typing import List
 
-from sqlalchemy import select, String, BigInteger, SmallInteger, Date, Numeric
+from sqlalchemy import select, String, BigInteger, SmallInteger, Date, Numeric, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 from sqlalchemy.dialects.postgresql import ARRAY
 
-from settings import root
+from config import root
 from db import Session, engine
 
 
@@ -54,15 +54,10 @@ class Company(Base):
     tg_link: Mapped[str] = mapped_column(String(64), nullable=True)
 
     @classmethod
-    def order_by_tech(cls, unordered: List['Company'], max_value) -> List['Company']:
-        output = session.execute(select(cls))
-
-
-    @classmethod
     def all(cls, session: Session, name: str, offer: str, technology: str) -> List['Company']:
         filters = filter(lambda val: val is not None,
              [
-                 cls.name.like(f'%{name}%') if name else None,
+                 func.lower(cls.name).like(f'%{name.lower()}%') if name else None,
                  cls.offers.contains([offer]) if offer else None,
                  cls.technologies.contains([technology]) if technology else None
              ]

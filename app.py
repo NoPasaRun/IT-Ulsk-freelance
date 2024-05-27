@@ -223,6 +223,18 @@ def dashboard():
     hist_y = generate_histogram_y(histogram_queryset)
     hist_x = generate_histogram_x(histogram_queryset)
 
+    date_y = [f"{num} ч" for num in [20, 30, 50, 80, 100, 150, 180][::-1]]
+    date_x = [
+        {"title": title, "procent": value / 180}
+        for title, value in zip(
+            ['янв', 'фев', 'мар', 'апр', 'май', 'июнь', 'июль', 'авг', 'сен', 'окт', 'ноя', 'дек'],
+            [180, 80, 160, 120, 80, 120, 160, 30, 100, 75, 150, 75]
+        )
+    ]
+
+    profession_data = {"Data Science - 450 в.": 35, "DevOps - 320 в.": 20,
+                       "Web Development - 100 в.": 10, "AI/ML - 50 в.": 20,
+                       "Mobile Development - 30 в.": 15}
     country_data = {"Россия": 5, "Украина": 3, "Беларусь": 6, "Молдавия": 9, "Азербайджан": 2}
     page_data = {"Рейтинги": 9, "Новости": 11, "ИТ-компании": 5, "Экосистема региона": 3, "Дашборды": 7}
 
@@ -232,8 +244,11 @@ def dashboard():
         offer_dist=offer_dist,
         hist_y=hist_y, hist_x=hist_x,
         country_data={"total": sum(country_data.values()), "data": country_data, "amount": len(country_data)},
-        page_data={"total": sum(page_data.values()), "data": page_data, "amount": len(page_data)}
-
+        page_data={"total": sum(page_data.values()), "data": page_data, "amount": len(page_data)},
+        date_y=date_y, date_x=date_x,
+        profession_data={
+            "total": sum(profession_data.values()), "data": profession_data, "amount": len(profession_data)
+        },
     )
 
 
