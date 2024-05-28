@@ -1,0 +1,114 @@
+@media (max-width: 1100px) {
+    .histogram__wrapper {
+        flex-wrap: wrap;
+        row-gap: 20px;
+    }
+
+    
+}
+
+@media (max-width: 800px) {
+    .column__wrapper {
+        margin-right: 0;
+    }
+
+    .section__heading_big {
+        margin-left: 50px;
+    }
+
+    .values__label {
+        font-size: 8px;
+    }
+
+    .histogram__column {
+        min-width: 20px;
+    }
+
+    .circle__data_large {
+        flex-direction: column;
+    }
+
+    .diagram__description_thin {
+        width: 100%;
+    }
+
+    .accordeon {
+        flex-direction: column;
+    }
+
+    .accordeon__list {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .accordeon__item {
+        min-width: auto;
+        max-width: none;
+        flex-basis: 31%;
+        padding: 0;
+        aspect-ratio: 2.7;
+    }
+
+    .bar__number {
+        font-size: 12px;
+        transform: translateY(3.5em);
+    }
+}
+
+@media (max-width: 560px) {
+    .accordeon__block {
+        padding: 0 20px;
+    }
+
+    .diagram__item {
+        font-size: 10px;
+    }
+
+    .diagram {
+        padding: 20px 25px;
+    }
+
+    .circle__data {
+        flex-direction: column;
+    }
+
+    .circle__part {
+        width: 180px;
+    }
+
+    .values__wrapper {
+        margin-right: 10px;
+    }
+
+    .column__wrapper {
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .histogram__column {
+        max-width: 15px;
+        min-width: auto;
+    }
+
+    .bar__number {
+        font-size: 10px;
+        transform: translateY(4em);
+    }
+}
+
+@media (max-width: 480px) {
+    .accordeon__block {
+        padding: 0 10px;
+    }
+
+    .section__heading_big {
+        margin-left: 25px;
+    }
+
+    .bar__number {
+        font-size: 8px;
+        transform: translateY(5em);
+    }
+}
