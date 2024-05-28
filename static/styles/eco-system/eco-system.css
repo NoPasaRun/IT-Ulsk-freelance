@@ -170,12 +170,14 @@
     box-shadow: 0px 4px 4px 0px #00000040;
     border-radius: 30px;
     flex-basis: calc(50% - 20px);
+    max-width: 100%;
 }
 
 .frame__top-info {
     display: flex;
     gap: 29px;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 
 .frame__top-right-info {

@@ -17,10 +17,18 @@
         left: 0;
         flex-direction: column;
         width: 100%;
-        justify-content: center;
-        align-items: flex-start;
+        justify-content: flex-start;
+        align-items: center;
         z-index: 3;
         text-align: center;
+        padding-top: 50px;
+    }
+
+    #menu-toggle:checked ~ .menu-button-container {
+        position: fixed;
+        top: 5%;
+        right: 5%;
+        height: fit-content;
     }
 
     #menu-toggle:checked ~ .nav__list {
@@ -40,7 +48,7 @@
         display: inline-block;
         top: 0;
         left: 0;
-        bottom: 0;
+        bottom: 60%;
         right: 0;
         background-color: var(--indigo);
         z-index: -1;
