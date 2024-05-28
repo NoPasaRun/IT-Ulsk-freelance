@@ -36,8 +36,13 @@ class Company(models.Model):
         delta = now - self.creation_date
         return round(delta.year + delta.day / 365, 2)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         db_table = 'company'
+        verbose_name = "Компания"
+        verbose_name_plural = "Компании"
 
 
 class Rating(models.Model):
@@ -48,6 +53,11 @@ class Rating(models.Model):
 
     class Meta:
         db_table = 'ratings'
+        verbose_name = "Рейтинг"
+        verbose_name_plural = "Рейтинги"
+
+    def __str__(self):
+        return f"{self.name} ({self.growth}%)"
 
 
 class Events(models.Model):
@@ -70,3 +80,8 @@ class Events(models.Model):
 
     class Meta:
         db_table = 'events'
+        verbose_name = "Мероприятие"
+        verbose_name_plural = "Мероприятия"
+
+    def __str__(self):
+        return self.title
