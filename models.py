@@ -3,8 +3,8 @@ from datetime import date, datetime
 
 from typing import List
 
-from sqlalchemy import select, String, BigInteger, SmallInteger, Date, Numeric, func
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+from sqlalchemy import select, String, BigInteger, SmallInteger, Date, Numeric, func, ForeignKey, Integer
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 
 from sqlalchemy.dialects.postgresql import ARRAY
 
