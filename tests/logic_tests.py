@@ -18,3 +18,13 @@ def test_pagination(current_page: int, total_pages: int, expected: tuple):
         )
     )
     assert texts == expected
+
+
+@pytest.mark.parametrize("current_page,total_pages,expected", CASES)
+def test_pagination(current_page: int, total_pages: int, expected: tuple):
+    texts = tuple(
+        data.get("text") for data in create_pagination(
+            "", current_page, total_pages, ""
+        )
+    )
+    assert texts == expected

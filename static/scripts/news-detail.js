@@ -27,5 +27,5 @@ function initSwiper() {
   });
 }
 
-window.onload = initSwiper
+initSwiper()
 window.onresize = initSwiper

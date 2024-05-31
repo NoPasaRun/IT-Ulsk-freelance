@@ -116,4 +116,4 @@ async def get_new_by_link(link: str, n: int = 0) -> dict:
     try:
         return await asyncio.create_task(retrieve_data(link))
     except Exception as error:
-        return asyncio.run(get_new_by_link(link, n + 1))
+        return await asyncio.create_task(get_new_by_link(link, n + 1))

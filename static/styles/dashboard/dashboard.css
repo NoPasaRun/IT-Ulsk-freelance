@@ -300,6 +300,11 @@
     background-color: var(--white);
     border-radius: 5px;
     margin-top: 3px;
+    transform: translateX(10px);
+}
+
+.bar__border_big {
+    transform: translateX(14px);
 }
 
 .bar__number_value {

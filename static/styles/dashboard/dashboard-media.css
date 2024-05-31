@@ -55,6 +55,14 @@
         font-size: 12px;
         transform: translateY(3.5em);
     }
+
+    .bar__border {
+        transform: translateX(8.5px);
+    }
+
+    .bar__border_big {
+        transform: translateX(12.5px);
+    }
 }
 
 @media (max-width: 560px) {
@@ -95,6 +103,14 @@
     .bar__number {
         font-size: 10px;
         transform: translateY(4em);
+    }
+
+    .bar__border {
+        transform: translateX(7px);
+    }
+
+    .bar__border_big {
+        transform: translateX(11px);
     }
 }
 

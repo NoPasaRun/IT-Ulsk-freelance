@@ -14,3 +14,7 @@ class CompanyUser(User):
 
     def __str__(self):
         return f"{self.company.name} №_{self.id}"
+
+    def save(self, *args, **kwargs):
+        self.set_password(self.password)
+        super(CompanyUser, self).save(*args, **kwargs)
