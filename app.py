@@ -180,11 +180,12 @@ def generate_distribution(queryset: List, attr_name: str, limit: int = 5):
         for attr_val in getattr(item, attr_name, []):
             values["data"][attr_val] = values["data"].get(attr_val, 0) + 1
     values["total"] = total = sum(values["data"].values())
-    values["data"] = {
-        key: values["data"][key]
-        for key in sorted(values["data"], key=values["data"].get)[-limit:]
-    }
-    values["data"]["Other"] = total - sum(values["data"].values())
+    if len(values["data"]) > limit:
+        values["data"] = {
+            key: values["data"][key]
+            for key in sorted(values["data"], key=values["data"].get)[-limit:]
+        }
+        values["data"]["Other"] = total - sum(values["data"].values())
     return values
 
 
@@ -192,8 +193,8 @@ def generate_histogram_y(queryset: List, limit: int = 7):
     max_val = round(queryset[0].income / 10 ** 6, 2)
     min_val = round(queryset[-1].income / 10 ** 6, 2)
 
-    add = (max_val - min_val) // limit
-    values = [min_val, *[min_val + add * i for i in range(1, limit - 1)], max_val]
+    add = (max_val - min_val) / limit
+    values = [min_val, *[round(min_val + add * i, 2) for i in range(1, limit - 1)], max_val]
 
     return list(map(
         lambda val: f"{val} млн" if val < 1000 else f"{round(val / 1000, 2)} млрд", values
