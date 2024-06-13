@@ -37,11 +37,7 @@ async def retrieve_html(url: str):
     async with ClientSession() as session:
         async with session.get(url) as response:
             text = await response.text()
-            soup = Soup(text, "html.parser")
-            feed = soup.find("div", {"class": "feed"})
-            next_url = url + f"/more?last_id={feed.get('data-feed-last-id')}&" \
-                               f"last_sorting_value={feed.get('data-feed-last-sorting-value')}"
-            return next_url, soup
+            return Soup(text, "html.parser")
 
 
 async def get_news_by_tag(link: str, next_page: str = None, n: int = 0) -> dict:
@@ -50,36 +46,34 @@ async def get_news_by_tag(link: str, next_page: str = None, n: int = 0) -> dict:
         return news
     if link is not None:
         try:
-            if next_page is not None:
-                next_page, html = await asyncio.create_task(retrieve_json(next_page))
-            else:
-                next_page, html = await asyncio.create_task(retrieve_html(link))
-        except AttributeError:
+            html = await asyncio.create_task(retrieve_html(link))
+        except AttributeError as error:
             return await get_news_by_tag(link, next_page, n + 1)
-        news["data"], news["next_page"] = parse_news(html), next_page
+        news["data"] = parse_news(html)
         return news
 
 
 def parse_news(soup: Soup) -> list:
     values = []
-    for new in soup.find_all("div", {"class": "feed__item"}):
-        feed = new.find("div", {"class": "content-feed"})
+    for new in soup.find_all("div", {"class": "content"}):
 
-        photo = new.find("div", {"class": "l-island-c"})
-        photo = photo.find("div", {"class": "andropov_image"}) if photo is not None else None
-        content = new.find("div", {"class": "content-container"})
-        description = content.find_all("div", {"class": "l-island-a"})
+        media = new.find("div", {"class": "media"})
+        photo = media.find("img") if media is not None else None
+
+        description = new.find_all("div", {"class": "block-wrapper--default"})
         caption = new.find("div", {"class": "content-title"})
 
-        num_date = int(new.find("time").get("data-date"))
+        time_values = [int(v if v.isdigit() else 1) for v in new.find("time").text.split(".")[::-1]]
+        if len(time_values) != 3:
+            time_values = new.find("time").text
+
         values.append({
             "title": replace(caption.text if caption is not None else ""),
             "description": replace(description[1].text if len(description) > 1 else DEFAULT_TEXT),
-            "link": new.find("a", {"class": "content-header__item"}).get("href"),
-            "image": photo.get("data-image-src") if photo is not None else None,
-            "id": feed.get("data-content-id"),
-            "date": datetime.fromtimestamp(num_date).strftime("%d.%m.%Y"),
-            "author": replace(new.find("div", {"class": "content-header-author__name"}).text)
+            "link": "https://vc.ru" + new.find("a", {"class": "content__link"}).get("href"),
+            "image": photo.get("src") if photo is not None else None,
+            "date": datetime(*time_values) if isinstance(time_values, list) else time_values,
+            "author": replace(new.find("div", {"class": "author__main"}).text)
         })
     return values
 
@@ -91,22 +85,23 @@ async def retrieve_data(url: str):
 
     soup = Soup(text, "html.parser")
 
-    content = soup.find("div", {"class": "content"})
+    media = soup.find("div", {"class": "media"})
+    photo = media.find("img") if media is not None else None
+
     text = "<br><br>".join([
-        replace(p.text) for p in content.find_all("div", {"class": "l-island-a"})
-    ][:-1])
+        replace(p.text) for p in soup.find_all("div", {"class": "block-wrapper__content"})
+    ])
 
-    num_date = int(soup.find("time").get("data-date"))
-
-    photo = soup.find("div", {"class": "l-island-c"})
-    photo = photo.find("div", {"class": "andropov_image"}) if photo is not None else None
+    time_values = [int(v if v.isdigit() else 1) for v in soup.find("time").text.split(".")[::-1]]
+    if len(time_values) != 3:
+        time_values = soup.find("time").text
 
     return {
         "title": replace(soup.find("h1", {"class": "content-title"}).text),
         "text": text,
-        "date": datetime.fromtimestamp(num_date).strftime("%d.%m.%Y"),
-        "author": replace(soup.find("div", {"class": "content-header-author__name"}).text),
-        "image": photo.get("data-image-src") if photo is not None else None,
+        "date": datetime(*time_values) if isinstance(time_values, list) else time_values,
+        "author": replace(soup.find("div", {"class": "author__main"}).text),
+        "image": photo.get("src") if photo is not None else None,
     }
 
 
